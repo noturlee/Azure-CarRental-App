@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/st10033808-l/databases/TheRideYouRent",
+      "type": "mssql.azure",
+      "connectionId": "TheRideYouRent"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<THERIDEURENT1.models.CarReturn>
+
+@{
+    ViewData["Title"] = "Vehicles returned";
+}
+
+<h1>Vehicles Returned 🚚</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>
+                Return Date
+            </th>
+            <th>
+                Elapsed Days
+            </th>
+            <th>
+                Fine
+            </th>
+            <th>
+                Car Number
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Driver)
+            </th>
+            <th>
+                Inspector
+            </th>
+            <th>
+                Rental ID
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReturnDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ElapsedDays)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarNoNavigation.CarNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Driver.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InspectorNoNavigation.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RentalId)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ReturnId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ReturnId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ReturnId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

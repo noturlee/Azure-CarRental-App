@@ -1,0 +1,67 @@
+﻿@model IEnumerable<THERIDEURENT1.models.Car>
+
+@{
+    ViewData["Title"] = "Car Data";
+}
+
+<h1>Vehicles Registered 🚘</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-dark">
+
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                Kilometers Travelled
+            </th>
+            <th>
+                Service Kilometers
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Available)
+            </th>
+            <th>
+                Vehicle Body Type
+            </th>
+            <th>
+                Car Make
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KilometersTravelled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceKilometers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Available)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarBodyType.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarMake.Description)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CarNo">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CarNo">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CarNo">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
